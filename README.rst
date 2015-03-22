@@ -10,7 +10,7 @@ blister-pack
 This project is an experiment to provisioning an environment of Mac OS X using the Ansible.
 This project provides a template for povisioning environment.
 
-** Caution! ** This project is too experimental, please consider carefully use.
+**Caution!** This project is too experimental, please consider carefully use.
 
 Bootstrapping
 ----------------
