@@ -1,0 +1,22 @@
+- name: Install dnsmasq
+  homebrew: name={{ item.name }} state={{ item.state }}
+  with_items:
+      - {name: "dnsmasq", state: "present"}
+
+- name: Create Direcotry /etc/resolver
+  sudo: yes
+  file: dest=/etc/resolver state=directory
+
+- name: Copy resolve dev file
+  sudo: yes
+  copy: src=roles/common/dnsmasq/files/dev dest=/etc/resolver/dev
+
+- name: Copy dnsmaq.conf
+  copy: src=roles/common/dnsmasq/files/dnsmasq.conf dest="{{ homebrew_prefix.stdout }}/etc/dnsmasq.conf"
+
+- name: Setup autostart
+  sudo: yes
+  file: src="{{ homebrew_prefix.stdout }}/opt/dnsmasq/homebrew.mxcl.dnsmasq.plist"  dest=/Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist state=link
+  notify:
+    - load dnsmasq
+    - clear dns cache

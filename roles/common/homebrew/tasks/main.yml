@@ -1,0 +1,36 @@
+- name: Install homebrew
+  command: ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" creates=/usr/local/bin/brew
+
+- name: Setup homebrew cask
+  homebrew_tap: tap={{ item.tap }} state={{ item.state }}
+  with_items:
+      - {tap: "caskroom/cask", state: "present"}
+
+- name: Update homebrew
+  homebrew: update_homebrew={{ blister_homebrew_update }} upgrade_all={{ blister_homebrew_upgrade_all }}
+
+- name: Install basic packages
+  homebrew: name={{ item.name }} state={{ item.state }}
+  with_items:
+      - {name: "autoconf", state: "present"}
+      - {name: "readline", state: "present"}
+      - {name: "openssl", state: "present"}
+      - {name: "brew-cask", state: "present"}
+      - {name: "git", state: "present"}
+      - {name: "hub", state: "present"}
+      - {name: "ruby-build", state: "present"}
+      - {name: "rbenv", state: "present"}
+      - {name: "rbenv-gem-rehash", state: "present"}
+      - {name: "rbenv-default-gems", state: "present"}
+      - {name: "gnu-tar", state: "present"}
+      - {name: "ack", state: "present"}
+      - {name: "findutils", state: "present"}
+      - {name: "nodenv", state: "present"}
+
+- name: Set variable 'hombrew_prefix' for other roles
+  shell: "echo `brew --prefix`"
+  register: homebrew_prefix
+
+- name: Set variable 'hombrew_cellar' for other roles
+  shell: "echo `brew --cellar`"
+  register: homebrew_cellar

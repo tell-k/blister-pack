@@ -1,0 +1,15 @@
+- name: Install python from hombrew
+  homebrew: name={{ item.name }} state={{ item.state }}
+  with_items:
+      - {name: "python", state: "present"}
+      - {name: "python3", state: "present"}
+
+- name: Install pip
+  command: curl https://raw.github.com/pypa/pip/master/contrib/get-pip.py | python creates=/usr/local/bin/pip
+
+- name: Install PyPI packages
+  pip: name={{ item.name }}
+  with_items:
+      - {name: "virtualenv"}
+      - {name: "virtualenvwrapper"}
+      - {name: "mercurial"}

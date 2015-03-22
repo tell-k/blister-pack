@@ -1,0 +1,7 @@
+dependencies:
+  - { role: common/homebrew }
+  - { role: common/python }
+  - { role: common/ruby }
+  - { role: common/nodejs }
+  - { role: common/nginx }
+  - { role: common/dnsmasq }

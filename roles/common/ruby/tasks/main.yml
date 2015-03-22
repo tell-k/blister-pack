@@ -1,0 +1,12 @@
+- name: Install ruby by rbenv
+  shell: rbenv install {{ item.option }} {{ item.version }} creates=~/.rbenv/versions/{{ item.version }}
+  with_items:
+    - {version: "1.9.3-p547", option: ""}
+    - {version: "2.1.3", option: ""}
+
+- name: Install gem packages
+  sudo: yes
+  gem: name={{ item.name }} state={{ item.state }} user_install=no
+  with_items:
+      - {name: "rake", state: "present"}
+      - {name: "serverspec", state: "present"}

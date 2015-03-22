@@ -1,0 +1,25 @@
+- name: Install nginx package
+  homebrew: name={{ item.name }} state={{ item.state }}
+  with_items:
+      - {name: "nginx", state: "present"}
+
+- name: Create directory sites-available
+  file: dest="{{ homebrew_prefix.stdout }}/etc/nginx/sites-available" state=directory
+
+- name: Create direcotry sites-enabled
+  file: dest="{{ homebrew_prefix.stdout }}/etc/nginx/sites-enabled" state=directory
+
+- name: Copy nginx.conf
+  copy: src=nginx.conf dest="{{ homebrew_prefix.stdout }}/etc/nginx.conf"
+
+- name: Copy default.conf
+  copy: src=default.conf dest="{{ homebrew_prefix.stdout }}/etc/nginx/sites-available/default.conf"
+
+- name: Setting auto start
+  sudo: yes
+  copy: src="{{ homebrew_prefix.stdout }}/opt/nginx/homebrew.mxcl.nginx.plist"  dest=/Library/LaunchDaemons/homebrew.mxcl.nginx.plist
+  notify: load nginx
+
+- name: Create symlink
+  file: src="{{ homebrew_prefix.stdout }}/etc/nginx/sites-available/default.conf" dest="{{ homebrew_prefix.stdout }}/etc/nginx/sites-enabled/default.conf" state=link force=yes
+  notify: load nginx

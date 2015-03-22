@@ -1,0 +1,9 @@
+[localhost]
+127.0.0.1  
+
+[localhost:vars]
+ansible_connection=local
+ansible_python_interpreter=/usr/local/bin/python
+
+blister_homebrew_update=yes
+blister_homebrew_upgrade_all=no
