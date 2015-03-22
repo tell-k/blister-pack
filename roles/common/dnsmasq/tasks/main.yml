@@ -16,7 +16,7 @@
 
 - name: Setup autostart
   sudo: yes
-  file: src="{{ homebrew_prefix.stdout }}/opt/dnsmasq/homebrew.mxcl.dnsmasq.plist"  dest=/Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist state=link
+  copy: src="{{ homebrew_prefix.stdout }}/opt/dnsmasq/homebrew.mxcl.dnsmasq.plist"  dest=/Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
   notify:
     - load dnsmasq
     - clear dns cache

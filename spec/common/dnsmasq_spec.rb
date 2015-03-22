@@ -17,7 +17,7 @@ describe file(homebrew_cellar() + '/dnsmasq') do
 end
 
 describe file('/Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist') do
-  it { should be_symlink }
+  it { should be_file }
 end
 
 describe service('dnsmasq') do
