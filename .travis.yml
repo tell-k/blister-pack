@@ -1,6 +1,7 @@
+language: objective-c
 os:
   - osx
-install:
+before_install:
   - xcodebuild -license
   - xcode-select --install
   - ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -9,4 +10,5 @@ install:
   - brew install python
   - brew install ansible
   - make playbook
-script: make test
+script: 
+  - make test
