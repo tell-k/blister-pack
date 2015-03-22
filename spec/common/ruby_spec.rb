@@ -12,8 +12,9 @@ target_versions.each{|version|
 }
 
 describe command('which rake') do
-  its(:stdout) { should match /\/usr\/bin\/rake/ }
+  its(:stdout) { should match /rake/ }
 end
+
 describe command('which serverspec-init') do
-  its(:stdout) { should match /\/usr\/bin\/serverspec-init/ }
+  its(:stdout) { should match /serverspec-init/ }
 end
