@@ -2,7 +2,7 @@ language: objective-c
 os:
   - osx
 before_install:
-  - xcodebuild -license
+  - sudo xcodebuild -license
   - xcode-select --install
   - ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   - brew doctor
