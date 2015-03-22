@@ -3,6 +3,6 @@ os:
   - osx
 before_install:
   - brew install ansible
-  - make playbook
+  - ansible-playbook -v playbook.yml
 script: 
   - make test

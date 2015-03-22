@@ -6,7 +6,7 @@ help:
 	@echo "  test            to testing your machine with serverspec"
 
 playbook:
-	ansible-playbook -v playbook.yml
+	ansible-playbook -v -K playbook.yml
 	@echo
 	@echo "Provisning finished."
 
