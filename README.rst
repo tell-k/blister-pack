@@ -43,6 +43,8 @@ Provisioning
 
 ::
   
+  $ git clone <new git repository>
+  $ cd <new git repository>
   $ make playbook
   # if you ask sudo pass, you input sudo password
 
