@@ -5,6 +5,7 @@
     - {version: "2.1.3", option: ""}
 
 - name: Install gem packages
+  sudo: yes
   gem: name={{ item.name }} state={{ item.state }} user_install=no
   with_items:
       - {name: "rake", state: "present"}
