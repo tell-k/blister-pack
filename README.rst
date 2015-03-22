@@ -10,10 +10,7 @@ blister-pack
 This project is an experiment to provisioning an environment of Mac OS X using the Ansible.
 This project provides a template for povisioning environment.
 
-.. warning::
-
- Caution! This project is very experimental, please consider carefully use.
-
+** Caution! ** This project is too experimental, please consider carefully use.
 
 Bootstrapping
 ----------------
@@ -30,7 +27,7 @@ You should copy this to new repository.
   git remote add origin <the location of my new git repository>
   git push -u origin master
 
-Prepare
+Prepare 
 
 ::
 
@@ -54,6 +51,7 @@ Testing
 ::
   
   $ make test
+  # testing with serverspec
 
 What You Get
 ----------------
@@ -101,4 +99,4 @@ TODO
 License
 -----------
 
-`MIT license <http://www.opensource.org/licenses/mit-license.php>`_ .
+`MIT license <http://www.opensource.org/licenses/mit-license.php>`_
