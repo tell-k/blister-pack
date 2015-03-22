@@ -2,7 +2,6 @@ language: objective-c
 os:
   - osx
 before_install:
-  - brew install python
   - brew install ansible
   - make playbook
 script: 
