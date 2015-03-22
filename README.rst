@@ -46,14 +46,14 @@ Provisioning
   $ git clone <new git repository>
   $ cd <new git repository>
   $ make playbook
-  # if you ask sudo pass, you input sudo password
+  # When asked the sudo password, please enter your password.
 
 Testing
 
 ::
   
   $ make test
-  # testing with serverspec
+  # Running test by serverspec
 
 What You Get
 ----------------
