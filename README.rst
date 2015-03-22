@@ -10,7 +10,8 @@ blister-pack
 This project is an experiment to provisioning an environment of Mac OS X using the Ansible.
 This project provides a template for povisioning environment.
 
-**Caution!** This project is too experimental, please consider carefully use.
+* **Caution!** This project is very experimental, Please consider carefully use.
+* I have check the operation only Yosemite.
 
 Bootstrapping
 ----------------
@@ -55,6 +56,7 @@ Testing
   $ make test
   # Running test by serverspec
 
+
 What You Get
 ----------------
 
@@ -90,6 +92,8 @@ This template project provides the following by default:
 * autoconf
 * readline
 * openssl
+* sqlite3
+* gdbm
 
 TODO
 

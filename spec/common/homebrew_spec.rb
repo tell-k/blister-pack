@@ -22,6 +22,9 @@ target_packages = [
   "ack",
   "findutils",
   "nodenv",
+  "openssl",
+  "gdbm",
+  "sqlite",
 ]
 
 target_packages.each{|package|

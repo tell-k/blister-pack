@@ -13,8 +13,6 @@
   homebrew: name={{ item.name }} state={{ item.state }}
   with_items:
       - {name: "autoconf", state: "present"}
-      - {name: "readline", state: "present"}
-      - {name: "openssl", state: "present"}
       - {name: "brew-cask", state: "present"}
       - {name: "git", state: "present"}
       - {name: "hub", state: "present"}
@@ -26,6 +24,10 @@
       - {name: "ack", state: "present"}
       - {name: "findutils", state: "present"}
       - {name: "nodenv", state: "present"}
+      - {name: "readline", state: "present"}
+      - {name: "openssl", state: "present"}
+      - {name: "gdbm", state: "present"}
+      - {name: "sqlite", state: "present"}
 
 - name: Set variable 'hombrew_prefix' for other roles
   shell: "echo `brew --prefix`"
