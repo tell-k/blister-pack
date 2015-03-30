@@ -8,11 +8,11 @@ describe file('/etc/resolver/dev') do
   it { should be_file }
 end
 
-describe file(homebrew_prefix() + '/etc/dnsmasq.conf') do
+describe file(homebrew_prefix + '/etc/dnsmasq.conf') do
   it { should be_file }
 end
 
-describe file(homebrew_cellar() + '/dnsmasq') do
+describe file(homebrew_cellar + '/dnsmasq') do
   it { should be_directory }
 end
 

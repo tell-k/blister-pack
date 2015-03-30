@@ -2,17 +2,17 @@ require 'serverspec'
 
 set :backend, :exec
 
-def home_path()
-   home_path = `echo ~/`
-   home_path = home_path.chomp
+def home_path
+  home_path = `echo ~/`
+  home_path.chomp
 end
 
-def homebrew_prefix()
-   prefix = `brew --prefix`
-   prefix= prefix.chomp
+def homebrew_prefix
+  prefix = `brew --prefix`
+  prefix.chomp
 end
 
-def homebrew_cellar()
-   cellar_path = `brew --cellar`
-   cellar_path = cellar_path.chomp
+def homebrew_cellar
+  cellar_path = `brew --cellar`
+  cellar_path.chomp
 end

@@ -1,18 +1,18 @@
 require 'rake'
 require 'rspec/core/rake_task'
 
-task :serverspec => 'serverspec:all'
-task :default => :serverspec
+task serverspec: 'serverspec:all'
+task default: :serverspec
 
 namespace :serverspec do
   targets = []
-  Dir.glob(['./spec/*']).each do |dir|
+  Dir.glob([File.dirname(__FILE__) + '/spec/*']).each do |dir|
     next unless File.directory?(dir)
     targets << dir
   end
 
-  task :all     => targets
-  task :default => :all
+  task all: targets
+  task default: :all
 
   targets.each do |target|
     desc "Run serverspec tests to #{target}"
