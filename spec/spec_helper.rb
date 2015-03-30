@@ -16,3 +16,7 @@ def homebrew_cellar
   cellar_path = `brew --cellar`
   cellar_path.chomp
 end
+
+def homebrew_caskroom
+  '/opt/homebrew-cask/Caskroom/'
+end
