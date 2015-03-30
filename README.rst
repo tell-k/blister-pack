@@ -99,10 +99,10 @@ TODO
 
 * Full Disk Encryption requirement
 
-.. |travis| image:: https://travis-ci.org/tell-k/blister-pack.svg?branch=master
-    :target: https://travis-ci.org/tell-k/blister-pack
-
 License
 -----------
 
 `MIT license <http://www.opensource.org/licenses/mit-license.php>`_
+
+.. |travis| image:: https://travis-ci.org/tell-k/blister-pack.svg?branch=master
+    :target: https://travis-ci.org/tell-k/blister-pack

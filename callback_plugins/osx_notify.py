@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
 
 import subprocess
-import os
 
 
 class CallbackModule(object):
 
     def __init__(self):
+        """ constructor """
         # self.disabled = True
-        return
 
     def on_any(self, *args, **kwargs):
         pass
@@ -52,7 +51,10 @@ class CallbackModule(object):
     def playbook_on_task_start(self, name, is_conditional):
         pass
 
-    def playbook_on_vars_prompt(self, varname, private=True, prompt=None, encrypt=None, confirm=False, salt_size=None, salt=None, default=None):
+    def playbook_on_vars_prompt(self, varname, private=True,
+                                prompt=None, encrypt=None,
+                                confirm=False, salt_size=None,
+                                salt=None, default=None):
         pass
 
     def playbook_on_setup(self):
@@ -68,4 +70,12 @@ class CallbackModule(object):
         pass
 
     def playbook_on_stats(self, stats):
-        subprocess.call("osascript -e 'display notification \"Complete to"" provisioning your machine!\" with title \"Complete!\"'", shell=True)
+        summary = stats.summarize('127.0.0.1')
+        status = "Complete!"
+        if summary.get('failures') > 0 or summary.get('unreachable') > 0:
+            status = "Failed!"
+        message = " ".join(["{}={}".format(k, v) for k, v in summary.items()])
+
+        cmd = "osascript -e 'display notification \"{}\" with title \"{}\"'"
+        cmd = cmd.format(message, status)
+        subprocess.call(cmd, shell=True)
