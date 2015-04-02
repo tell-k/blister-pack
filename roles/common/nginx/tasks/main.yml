@@ -10,7 +10,7 @@
   file: dest="{{ homebrew_prefix.stdout }}/etc/nginx/sites-enabled" state=directory
 
 - name: Copy default.conf
-  copy: src=default.conf dest="{{ homebrew_prefix.stdout }}/etc/nginx/sites-available/default.conf"
+  copy: src=default.conf dest="{{ homebrew_prefix.stdout }}/etc/nginx/sites-available/default.conf" backup=yes
   notify: restart nginx
 
 - name: Copy nginx.conf template
