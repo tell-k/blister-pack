@@ -9,11 +9,13 @@
 - name: Create direcotry sites-enabled
   file: dest="{{ homebrew_prefix.stdout }}/etc/nginx/sites-enabled" state=directory
 
-- name: Copy nginx.conf
-  copy: src=nginx.conf dest="{{ homebrew_prefix.stdout }}/etc/nginx.conf"
-
 - name: Copy default.conf
   copy: src=default.conf dest="{{ homebrew_prefix.stdout }}/etc/nginx/sites-available/default.conf"
+  notify: restart nginx
+
+- name: Copy nginx.conf template
+  template: src=nginx.conf dest="{{ homebrew_prefix.stdout }}/etc/nginx/nginx.conf" backup=yes
+  notify: restart nginx
 
 - name: Setting auto start
   sudo: yes
@@ -22,4 +24,4 @@
 
 - name: Create symlink
   file: src="{{ homebrew_prefix.stdout }}/etc/nginx/sites-available/default.conf" dest="{{ homebrew_prefix.stdout }}/etc/nginx/sites-enabled/default.conf" state=link force=yes
-  notify: load nginx
+  notify: restart nginx

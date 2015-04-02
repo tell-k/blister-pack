@@ -9,14 +9,14 @@
 
 - name: Copy resolve dev file
   sudo: yes
-  copy: src=roles/common/dnsmasq/files/dev dest=/etc/resolver/dev
+  copy: src=roles/common/dnsmasq/files/dev dest=/etc/resolver/dev backup=yes
 
 - name: Copy dnsmaq.conf
-  copy: src=roles/common/dnsmasq/files/dnsmasq.conf dest="{{ homebrew_prefix.stdout }}/etc/dnsmasq.conf"
+  copy: src=roles/common/dnsmasq/files/dnsmasq.conf dest="{{ homebrew_prefix.stdout }}/etc/dnsmasq.conf" backup=yes
 
 - name: Setup autostart
   sudo: yes
-  copy: src="{{ homebrew_prefix.stdout }}/opt/dnsmasq/homebrew.mxcl.dnsmasq.plist"  dest=/Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+  copy: src="{{ homebrew_prefix.stdout }}/opt/dnsmasq/homebrew.mxcl.dnsmasq.plist" dest=/Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist backup=yes
   notify:
     - load dnsmasq
     - clear dns cache

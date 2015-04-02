@@ -3,4 +3,4 @@
   shell: launchctl load -w /Library/LaunchDaemons/homebrew.mxcl.nginx.plist
 
 - name: restart nginx
-  shell: sudo nginx stop && sudo nginx
+  shell: sudo nginx -s stop && sudo nginx
