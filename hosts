@@ -3,11 +3,12 @@
 
 [localhost:vars]
 ansible_connection=local
-ansible_python_interpreter=`which python`
+ansible_python_interpreter={{ lookup('pipe','echo `which python`') }}
 
 home_path={{ lookup('env','HOME') }}
+
 homebrew_prefix={{ lookup('pipe','echo `brew --prefix`') }}
 homebrew_cellar={{ lookup('pipe','echo `brew --cellar`') }}
+homebrew_caskroom=/opt/homebrew-cask/Caskroom/
 homebrew_update=yes
 homebrew_upgrade_all=no
-homebrew_caskroom=/opt/homebrew-cask/Caskroom/
