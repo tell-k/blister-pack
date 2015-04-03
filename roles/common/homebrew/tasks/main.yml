@@ -7,7 +7,7 @@
       - {tap: "caskroom/cask", state: "present"}
 
 - name: Update homebrew
-  homebrew: update_homebrew={{ blister_homebrew_update }} upgrade_all={{ blister_homebrew_upgrade_all }}
+  homebrew: update_homebrew={{ homebrew_update }} upgrade_all={{ homebrew_upgrade_all }}
 
 - name: Install basic packages
   homebrew: name={{ item.name }} state={{ item.state }}
@@ -29,10 +29,3 @@
       - {name: "gdbm", state: "present"}
       - {name: "sqlite", state: "present"}
 
-- name: Set variable 'hombrew_prefix' for other roles
-  shell: "echo `brew --prefix`"
-  register: homebrew_prefix
-
-- name: Set variable 'hombrew_cellar' for other roles
-  shell: "echo `brew --cellar`"
-  register: homebrew_cellar

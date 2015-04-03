@@ -4,24 +4,24 @@
       - {name: "nginx", state: "present"}
 
 - name: Create directory sites-available
-  file: dest="{{ homebrew_prefix.stdout }}/etc/nginx/sites-available" state=directory
+  file: dest="{{ homebrew_prefix }}/etc/nginx/sites-available" state=directory
 
 - name: Create direcotry sites-enabled
-  file: dest="{{ homebrew_prefix.stdout }}/etc/nginx/sites-enabled" state=directory
+  file: dest="{{ homebrew_prefix }}/etc/nginx/sites-enabled" state=directory
 
 - name: Copy default.conf
-  copy: src=default.conf dest="{{ homebrew_prefix.stdout }}/etc/nginx/sites-available/default.conf" backup=yes
+  copy: src=default.conf dest="{{ homebrew_prefix }}/etc/nginx/sites-available/default.conf" backup=yes
   notify: restart nginx
 
 - name: Copy nginx.conf template
-  template: src=nginx.conf dest="{{ homebrew_prefix.stdout }}/etc/nginx/nginx.conf" backup=yes
+  template: src=nginx.conf dest="{{ homebrew_prefix }}/etc/nginx/nginx.conf" backup=yes
   notify: restart nginx
 
 - name: Setting auto start
   sudo: yes
-  copy: src="{{ homebrew_prefix.stdout }}/opt/nginx/homebrew.mxcl.nginx.plist"  dest=/Library/LaunchDaemons/homebrew.mxcl.nginx.plist
+  copy: src="{{ homebrew_prefix }}/opt/nginx/homebrew.mxcl.nginx.plist"  dest=/Library/LaunchDaemons/homebrew.mxcl.nginx.plist
   notify: load nginx
 
 - name: Create symlink
-  file: src="{{ homebrew_prefix.stdout }}/etc/nginx/sites-available/default.conf" dest="{{ homebrew_prefix.stdout }}/etc/nginx/sites-enabled/default.conf" state=link force=yes
+  file: src="{{ homebrew_prefix }}/etc/nginx/sites-available/default.conf" dest="{{ homebrew_prefix }}/etc/nginx/sites-enabled/default.conf" state=link force=yes
   notify: restart nginx
