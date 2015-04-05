@@ -18,10 +18,11 @@ namespace :serverspec do
   targets.each do |target|
     desc "Run serverspec tests to #{target}"
     RSpec::Core::RakeTask.new(target.to_sym) do |t|
-      puts "target: " + target.gsub(project_root, '') + "/*_spec.rb"
+      puts 'target: ' + target.gsub(project_root, '') + '/*_spec.rb'
       ENV['TARGET_HOST'] = target
       t.pattern = "#{target}/*_spec.rb"
       t.verbose = false
     end
   end
 end
+
