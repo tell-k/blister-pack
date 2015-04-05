@@ -6,6 +6,7 @@ task default: :serverspec
 
 namespace :serverspec do
   targets = []
+  project_root = File.dirname(__FILE__)
   Dir.glob([File.dirname(__FILE__) + '/spec/*']).each do |dir|
     next unless File.directory?(dir)
     targets << dir
@@ -17,6 +18,7 @@ namespace :serverspec do
   targets.each do |target|
     desc "Run serverspec tests to #{target}"
     RSpec::Core::RakeTask.new(target.to_sym) do |t|
+      puts "target: " + target.gsub(project_root, '') + "/*_spec.rb"
       ENV['TARGET_HOST'] = target
       t.pattern = "#{target}/*_spec.rb"
       t.verbose = false
