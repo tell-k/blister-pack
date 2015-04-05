@@ -11,6 +11,6 @@ playbook:
 	@echo "Provisning finished."
 
 test:
-	rake serverspec -vv
+	rake serverspec
 	@echo
 	@echo "Test finished."

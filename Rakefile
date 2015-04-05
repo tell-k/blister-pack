@@ -19,6 +19,7 @@ namespace :serverspec do
     RSpec::Core::RakeTask.new(target.to_sym) do |t|
       ENV['TARGET_HOST'] = target
       t.pattern = "#{target}/*_spec.rb"
+      t.verbose = false
     end
   end
 end
