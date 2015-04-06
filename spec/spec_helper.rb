@@ -20,3 +20,7 @@ end
 def homebrew_caskroom
   '/opt/homebrew-cask/Caskroom/'
 end
+
+def travis_build_skip?
+  ENV['TRAVIS_BUILD_SKIP'] == 'True'
+end

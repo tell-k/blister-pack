@@ -11,3 +11,4 @@ homebrew_cellar={{ lookup('pipe','echo `brew --cellar`') }}
 homebrew_caskroom=/opt/homebrew-cask/Caskroom/
 homebrew_update=yes
 homebrew_upgrade_all=no
+travis_build_skip={{ lookup('env','TRAVIS_BUILD_SKIP') or False }}

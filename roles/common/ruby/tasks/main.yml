@@ -3,6 +3,7 @@
   with_items:
     - {version: "1.9.3-p547", option: ""}
     - {version: "2.1.3", option: ""}
+  when: not {{ travis_build_skip|bool }}
 
 - name: Install gem packages
   sudo: yes
