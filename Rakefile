@@ -7,7 +7,7 @@ task default: :serverspec
 namespace :serverspec do
   targets = []
   project_root = File.dirname(__FILE__)
-  Dir.glob([File.dirname(__FILE__) + '/spec/*']).each do |dir|
+  Dir.glob([project_root + '/spec/*']).each do |dir|
     next unless File.directory?(dir)
     targets << dir
   end
