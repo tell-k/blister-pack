@@ -20,13 +20,13 @@ You should copy this to new repository.
 
 ::
 
-  sudo mkdir -p /opt/blister-pack
-  sudo chown ${USER}:staff /opt/blister-pack
-  git clone https://github.com/tell-k/blister-pack /opt/blister-pack/repo/
-  cd /opt/blister-pack/repo/
-  git remote rm origin
-  git remote add origin <the location of my new git repository>
-  git push -u origin master
+ $ sudo mkdir -p /opt/blister-pack
+ $ sudo chown ${USER}:staff /opt/blister-pack
+ $ git clone https://github.com/tell-k/blister-pack /opt/blister-pack/repo/
+ $ cd /opt/blister-pack/repo/
+ $ git remote rm origin
+ $ git remote add origin <the location of my new git repository>
+ $ git push -u origin master
 
 Prepare 
 
