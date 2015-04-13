@@ -5,7 +5,7 @@ describe command('which brew') do
 end
 
 describe command('brew tap') do
-  its(:stdout) { should match(/caskroom\/cask/) }
+  its(:stdout) { should match(%r{caskroom\/cask}) }
 end
 
 target_packages = [
