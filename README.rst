@@ -6,17 +6,23 @@ blister-pack
 .. cotents::
    :local:
 
-
 This project is an experiment to provisioning an environment of Mac OS X using the Ansible.
-This project provides a template for povisioning environment.
+This repository template is just a basic example of how to do things with them.
 
-* **Caution!** This project is very experimental, Please consider carefully use.
-* I have check the operation only Yosemite.
+Caution
+----------------
+
+* This project is very experimental, Please consider carefully use.
+* I have check the operation only OSX Yosemite(v10.10).
 
 Bootstrapping
 ----------------
 
-You should copy this to new repository.
+Create a new git repository somewhere on the internet.
+It can be private or public -- it really doesn't matter.
+If you're making a repository on GitHub, you may not want to fork this repo to get started.
+The reason for that is that you can't really make private forks of public repositories easily.
+Once you've done that, you can run the following to bootstrap your blister-pack:
 
 ::
 
@@ -28,7 +34,7 @@ You should copy this to new repository.
  $ git remote add origin <the location of my new git repository>
  $ git push -u origin master
 
-Prepare 
+Preparation
 
 ::
 
@@ -44,9 +50,10 @@ Provisioning
 
 ::
   
-  $ git clone <new git repository>
-  $ cd <new git repository>
+  $ git clone <the location of my new git repository>
+  $ cd <the location of my new git repository>
   $ make playbook
+
   # When asked the sudo password, please enter your password.
 
 Testing
@@ -54,6 +61,7 @@ Testing
 ::
   
   $ make test
+
   # Running test by serverspec
 
 
@@ -98,6 +106,11 @@ This template project provides the following by default:
 TODO
 
 * Full Disk Encryption requirement
+
+Customize and Settings
+--------------------------
+
+TODO
 
 
 License
