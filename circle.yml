@@ -1,0 +1,10 @@
+dependencies:
+  pre:
+    - brew update
+    - brew install python
+    - brew install ansible
+    - make playbook
+
+test:
+  override:
+    - make test
