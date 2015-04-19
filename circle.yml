@@ -3,7 +3,7 @@ dependencies:
     - brew update
     - brew install python
     - brew install ansible
-    - make playbook
+    - ansible-playbook -vvvvv playbook.yml -i hosts
 
 test:
   override:

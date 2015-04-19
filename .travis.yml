@@ -5,6 +5,6 @@ before_install:
   - brew update
   - brew install python
   - brew install ansible
-  - ansible-playbook -vv playbook.yml -i hosts
+  - ansible-playbook -vvvvv playbook.yml -i hosts
 script: 
   - make test
