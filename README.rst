@@ -72,7 +72,7 @@ This template project provides the following by default:
 * ruby-build
 * ruby-gem-rehash
 * ruby-default-gems
-* nodenv
+* nodebrew
 * Node.js 0.10
 * Node.js 0.11
 * Node.js 0.12

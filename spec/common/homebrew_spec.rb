@@ -21,7 +21,7 @@ target_packages = [
   'gnu-tar',
   'ack',
   'findutils',
-  'nodenv',
+  'nodebrew',
   'openssl',
   'gdbm',
   'sqlite'

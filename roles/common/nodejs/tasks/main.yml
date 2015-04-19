@@ -1,6 +1,6 @@
-- name: Install nodenv
-  command: nodenv install {{ item.version }} creates=~/.nodenv/versions/{{ item.version }}
+- name: Install nodejs by nodebrew
+  command: nodebrew install-binary {{ item.version }} creates=~/.nodebrew/node/{{ item.version }}
   with_items:
       - {version: "v0.10.9"}
       - {version: "v0.11.9"}
-      - {version: "v0.12.0"}
+      - {version: "v0.12.2"}

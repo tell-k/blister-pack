@@ -23,7 +23,7 @@
       - {name: "gnu-tar", state: "present"}
       - {name: "ack", state: "present"}
       - {name: "findutils", state: "present"}
-      - {name: "nodenv", state: "present"}
+      - {name: "nodebrew", state: "present"}
       - {name: "readline", state: "present"}
       - {name: "openssl", state: "present"}
       - {name: "gdbm", state: "present"}
