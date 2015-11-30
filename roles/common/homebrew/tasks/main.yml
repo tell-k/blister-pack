@@ -9,6 +9,14 @@
 - name: Update homebrew
   homebrew: update_homebrew={{ homebrew_update }} upgrade_all={{ homebrew_upgrade_all }}
 
+- name: Upgrade homebrew cask
+  shell: brew upgrade brew-cask
+  when: homebrew_update == "yes"
+
+- name: Cleanup homebrew
+  shell: brew cleanup && brew cask cleanup
+  when: homebrew_update == "yes"
+
 - name: Install basic packages
   homebrew: name={{ item.name }} state={{ item.state }}
   with_items:
