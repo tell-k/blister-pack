@@ -81,9 +81,10 @@ This template project provides the following by default:
 * ruby-gem-rehash
 * ruby-default-gems
 * nodebrew
-* Node.js 0.10
-* Node.js 0.11
-* Node.js 0.12
+* Node.js 4.2.3
+* Node.js 5.2.0
+* io.js 2.5.0
+* io.js 3.3.1
 * Ruby 1.9.3
 * Ruby 2.1.3
 * rake
@@ -111,7 +112,6 @@ Customize and Settings
 --------------------------
 
 TODO
-
 
 License
 -----------

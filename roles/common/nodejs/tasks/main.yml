@@ -1,6 +1,18 @@
+- name: Ensure nodebrew directory
+  file: path=~/.nodebrew/ state=directory
+
 - name: Install nodejs by nodebrew
   command: nodebrew install-binary {{ item.version }} creates=~/.nodebrew/node/{{ item.version }}
   with_items:
-      - {version: "v0.10.9"}
-      - {version: "v0.11.9"}
-      - {version: "v0.12.2"}
+      # - {version: "v0.10.41"}
+      # - {version: "v0.11.16"}
+      # - {version: "v0.12.9"}
+      - {version: "v4.2.3"}
+      - {version: "v5.2.0"}
+
+- name: Install iojs by nodebrew
+  command: nodebrew install-binary io@{{ item.version }} creates=~/.nodebrew/iojs/{{ item.version }}
+  with_items:
+      # - {version: "v1.8.4"}
+      - {version: "v2.5.0"}
+      - {version: "v3.3.1"}
