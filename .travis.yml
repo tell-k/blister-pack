@@ -1,6 +1,4 @@
 language: objective-c
-services:
-  - docker
 os:
   - osx
 before_install:
