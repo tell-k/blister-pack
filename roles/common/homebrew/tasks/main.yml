@@ -6,11 +6,14 @@
   with_items:
       - {tap: "caskroom/cask", state: "present"}
 
+- name: Install homebrew cask
+  homebrew: name=brew-cask state=present
+
 - name: Update homebrew
   homebrew: update_homebrew={{ homebrew_update }} upgrade_all={{ homebrew_upgrade_all }}
 
 - name: Upgrade homebrew cask
-  shell: brew upgrade brew-cask
+  homebrew: name=brew-cask state=latest
   when: homebrew_update == "yes"
 
 - name: Cleanup homebrew
