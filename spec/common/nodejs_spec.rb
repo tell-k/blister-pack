@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 target_versions = [
-  'v4.2.3'
+  'v4.2.3',
   'v5.2.0'
 ]
 target_versions.each do|version|
@@ -11,7 +11,7 @@ target_versions.each do|version|
 end
 
 target_versions = [
-  'v2.5.0'
+  'v2.5.0',
   'v3.3.1'
 ]
 target_versions.each do|version|
