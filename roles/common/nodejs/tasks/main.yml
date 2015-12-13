@@ -1,5 +1,5 @@
-- name: Ensure nodebrew directory
-  file: path={{ home_path }}/.nodebrew/ state=directory
+- name: Install nodebrew
+  shell: curl -L git.io/nodebrew | perl - setup creates={{ home_path }}/.nodebrew/
 
 - name: Install nodejs by nodebrew
   command: nodebrew install-binary {{ item.version }} creates={{ home_path }}/.nodebrew/node/{{ item.version }}
