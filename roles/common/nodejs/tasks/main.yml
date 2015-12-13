@@ -1,6 +1,9 @@
 - name: Install nodebrew
   shell: curl -L git.io/nodebrew | perl - setup creates={{ home_path }}/.nodebrew/
 
+- name: Create symlink
+  file: src={{ home_path }}/.nodebrew/current/bin/nodebrew dest={{ homebrew_prefix }}/bin/nodebrew state=directory state=link
+
 - name: Install nodejs by nodebrew
   command: nodebrew install-binary {{ item.version }} creates={{ home_path }}/.nodebrew/node/{{ item.version }}
   with_items:
