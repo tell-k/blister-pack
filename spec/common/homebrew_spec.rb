@@ -11,7 +11,7 @@ end
 target_packages = [
   'autoconf',
   'readline',
-  'brew-cask',
+  'cask',
   'git',
   'hub',
   'ruby-build',
