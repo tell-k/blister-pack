@@ -3,5 +3,6 @@ dependencies:
   - { role: common/python }
   - { role: common/ruby }
   - { role: common/nodejs }
+  - { role: common/golang }
   - { role: common/nginx }
   - { role: common/dnsmasq }

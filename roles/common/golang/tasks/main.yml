@@ -1,0 +1,4 @@
+- name: Install golang from hombrew
+  homebrew: name={{ item.name }} state={{ item.state }}
+  with_items:
+      - {name: "gol", state: "present"}
