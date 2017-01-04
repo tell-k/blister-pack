@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 target_packages = [
-  'golang',
+  'go',
 ]
 
 target_packages.each do|package|
