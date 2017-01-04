@@ -18,7 +18,7 @@
   notify: restart nginx
 
 - name: Setting auto start
-  sudo: yes
+  become: yes
   copy: src="{{ homebrew_prefix }}/opt/nginx/homebrew.mxcl.nginx.plist"  dest=/Library/LaunchDaemons/homebrew.mxcl.nginx.plist
   notify: load nginx
 

@@ -6,7 +6,7 @@
   when: not {{ travis_build_skip|bool }}
 
 - name: Install gem packages
-  sudo: yes
+  become: yes
   gem: name={{ item.name }} state={{ item.state }} user_install=no
   with_items:
       - {name: "rake", state: "present"}

@@ -4,18 +4,18 @@
       - {name: "dnsmasq", state: "present"}
 
 - name: Create Direcotry /etc/resolver
-  sudo: yes
+  become: yes
   file: dest=/etc/resolver state=directory
 
 - name: Copy resolve dev file
-  sudo: yes
+  become: yes
   copy: src=roles/common/dnsmasq/files/dev dest=/etc/resolver/dev backup=yes
 
 - name: Copy dnsmaq.conf
   copy: src=roles/common/dnsmasq/files/dnsmasq.conf dest="{{ homebrew_prefix }}/etc/dnsmasq.conf" backup=yes
 
 - name: Setup autostart
-  sudo: yes
+  become: yes
   copy: src="{{ homebrew_prefix }}/opt/dnsmasq/homebrew.mxcl.dnsmasq.plist" dest=/Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist backup=yes
   notify:
     - load dnsmasq
