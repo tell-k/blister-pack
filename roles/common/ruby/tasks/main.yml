@@ -1,9 +1,9 @@
-- name: Install ruby by rbenv
-  shell: rbenv install {{ item.option }} {{ item.version }} creates=~/.rbenv/versions/{{ item.version }}
-  with_items:
-    - {version: "1.9.3-p551", option: ""}
-    - {version: "2.2.1", option: ""}
-  when: not {{ travis_build_skip|bool }}
+#- name: Install ruby by rbenv
+#  shell: rbenv install {{ item.option }} {{ item.version }} creates=~/.rbenv/versions/{{ item.version }}
+#  with_items:
+#    - {version: "1.9.3-p551", option: ""}
+#    - {version: "2.2.1", option: ""}
+#  when: not {{ travis_build_skip|bool }}
 
 - name: Install gem packages
   become: yes
