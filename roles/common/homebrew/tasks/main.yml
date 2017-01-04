@@ -7,13 +7,13 @@
       - {tap: "caskroom/cask", state: "present"}
 
 - name: Install homebrew cask
-  homebrew: name=brew-cask state=present
+  homebrew: name=cask state=present
 
 - name: Update homebrew
   homebrew: update_homebrew={{ homebrew_update }} upgrade_all={{ homebrew_upgrade_all }}
 
 - name: Upgrade homebrew cask
-  homebrew: name=brew-cask state=latest
+  homebrew: name=cask state=latest
   when: homebrew_update == "yes"
 
 - name: Cleanup homebrew
@@ -24,12 +24,11 @@
   homebrew: name={{ item.name }} state={{ item.state }}
   with_items:
       - {name: "autoconf", state: "present"}
-      - {name: "brew-cask", state: "present"}
+      - {name: "cask", state: "present"}
       - {name: "git", state: "present"}
       - {name: "hub", state: "present"}
       - {name: "ruby-build", state: "present"}
       - {name: "rbenv", state: "present"}
-      - {name: "rbenv-gem-rehash", state: "present"}
       - {name: "rbenv-default-gems", state: "present"}
       - {name: "gnu-tar", state: "present"}
       - {name: "ack", state: "present"}

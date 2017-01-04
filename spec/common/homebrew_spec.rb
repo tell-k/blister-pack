@@ -16,7 +16,6 @@ target_packages = [
   'hub',
   'ruby-build',
   'rbenv',
-  'rbenv-gem-rehash',
   'rbenv-default-gems',
   'gnu-tar',
   'ack',
